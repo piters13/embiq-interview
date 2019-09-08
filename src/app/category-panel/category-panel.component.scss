@@ -1,0 +1,39 @@
+@import "variables";
+
+.row .col {
+  max-width: 20%;
+  *max-width: 20%;
+  flex: 0 0 20%;
+
+  @include media-breakpoint-up(lg) {
+    max-width: 14.285714%;
+    *max-width: 14.285714%;
+    flex: 0 0 14.285714%;
+  }
+}
+
+.add-btn {
+  border: dashed 2px $gray-2;
+  border-radius: 15px;
+  width: 4.5rem;
+  height: 4.5rem;
+  padding: 0;
+  background: white;
+  display: flex;
+  justify-content: center;
+
+  .plus-icon {
+    color: $gray-2;
+  }
+}
+
+.category-name {
+  color: $gray-2;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+::ng-deep .mat-dialog-content {
+  margin: 0 !important;
+  max-height: 80vh !important;
+}

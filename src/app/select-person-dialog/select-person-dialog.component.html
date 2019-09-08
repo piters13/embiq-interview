@@ -1,0 +1,16 @@
+<div class="container" mat-dialog-content>
+  <div class="row" mat-dialog-actions>
+    <div *ngFor="let person of peopleToSelect" class="col-2">
+      <app-profile-card
+        [firstname]="person.firstname"
+        [lastname]="person.lastname"
+        [position]="person.position"
+        (click)="addToCategory(person)"
+      >
+      </app-profile-card>
+    </div>
+  </div>
+  <button mat-button class="close-btn" (click)="onClose()">
+    <mat-icon class="close-icon">close</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <h1>Getting started - Add Influancers</h1>
+  </div>
+  <div class="row py-3 main-content">
+    <div class="col-9 pl-0">
+      <app-category-panel categoryName="team" [people]="team"></app-category-panel>
+      <hr />
+      <app-category-panel categoryName="peers" [people]="peers"></app-category-panel>
+      <hr />
+      <app-category-panel categoryName="manager" [people]="manager"></app-category-panel>
+      <hr />
+      <app-category-panel categoryName="other" [people]="others"></app-category-panel>
+    </div>
+    <div class="col-3 info">
+      <div>
+        <img src="../assets/board-img.png" class="img-fluid pb-4" />
+        <div class="description">
+          At vero eos et accusamus et iusto odio dignissimos ducimus, qui
+          blanditiis praesentium voluptatum deleniti atque corrupti, quos
+          dolores et quas molestias excepturi sint, obcaecati cupiditate non
+          provident, similique sunt
+        </div>
+      </div>
+      <button class="next-step-btn" (click)="noop()">
+        <span style="padding: 0 1rem;">NEXT STEP</span>
+        <mat-icon class="next-icon">navigate_next</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

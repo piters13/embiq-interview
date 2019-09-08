@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col category-name">{{ categoryName | uppercase }}</div>
+    <div class="col">
+      <button class="add-btn" (click)="openDialog()">
+        <mat-icon class="plus-icon">add</mat-icon>
+      </button>
+    </div>
+    <app-profile-card
+      *ngFor="let person of people | slice: 0:cardsToDisplay"
+      class="col"
+      [firstname]="person.firstname"
+      [lastname]="person.lastname"
+      [position]="person.position"
+    ></app-profile-card>
+  </div>
+</div>
