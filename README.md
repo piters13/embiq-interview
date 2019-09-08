@@ -1,5 +1,9 @@
 # EmbiqInterviewApp
 
+This project is using yarn as package manager.
+
+To run the application type: 𝘆𝗮𝗿𝗻 and then 𝘆𝗮𝗿𝗻 𝘀𝘁𝗮𝗿𝘁
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
 
 ## Development server
