@@ -1,95 +1,36 @@
-import { Component } from "@angular/core";
-
-export interface Profile {
-  firstname: string;
-  lastname: string;
-  position: string;
-}
+import { Component, OnInit } from "@angular/core";
+import { ApiService, Person } from "./services/api.service";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"]
 })
-export class AppComponent {
-  team = [
-    {
-      firstname: "Grant",
-      lastname: "Marshall",
-      position: "Clinical Laboratory"
-    },
-    {
-      firstname: "Pena",
-      lastname: "Valdez",
-      position: "Patrol officer"
-    },
-    {
-      firstname: "Kerri",
-      lastname: "Barber",
-      position: "Zoologist"
-    },
-    {
-      firstname: "Natasha",
-      lastname: "Gamble",
-      position: "Chef"
-    },
-    {
-      firstname: "Jessica",
-      lastname: "Miles",
-      position: "Database administrator"
-    }
-  ];
+export class AppComponent implements OnInit {
+  team: Person[];
+  peers: Person[];
+  manager: Person[];
+  others: Person[];
 
-  peers = [
-    {
-      firstname: "Grant",
-      lastname: "Marshall",
-      position: "Clinical Laboratory"
-    },
-    {
-      firstname: "Pena",
-      lastname: "Valdez",
-      position: "Patrol officer"
-    },
-    {
-      firstname: "Jessica",
-      lastname: "Miles",
-      position: "Database administrator"
-    }
-  ];
+  constructor(private apiService: ApiService) {}
 
-  manager = [
-    {
-      firstname: "Grant",
-      lastname: "Marshall",
-      position: "Clinical Laboratory"
-    }
-  ];
+  ngOnInit() {
+    this.apiService.get("team").subscribe(people => {
+      this.team = people;
+    });
 
-  others = [
-    {
-      firstname: "Grant",
-      lastname: "Marshall",
-      position: "Clinical Laboratory"
-    },
-    {
-      firstname: "Pena",
-      lastname: "Valdez",
-      position: "Patrol officer"
-    },
-    {
-      firstname: "Jessica",
-      lastname: "Miles",
-      position: "Database administrator"
-    },
-    {
-      firstname: "Kerri",
-      lastname: "Barber",
-      position: "Zoologist"
-    }
-  ];
+    this.apiService.get("peers").subscribe(people => {
+      this.peers = people;
+    });
 
-  constructor() {}
+    this.apiService.get("manager").subscribe(people => {
+      this.manager = people;
+    });
+
+    this.apiService.get("others").subscribe(people => {
+      this.others = people;
+    });
+  }
 
   noop = () => null;
 }

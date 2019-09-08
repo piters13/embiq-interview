@@ -1,6 +1,6 @@
 <div class="container" mat-dialog-content>
   <div class="row" mat-dialog-actions>
-    <div *ngFor="let person of peopleToSelect" class="col-2">
+    <div *ngFor="let person of people" class="col-2">
       <app-profile-card
         [firstname]="person.firstname"
         [lastname]="person.lastname"

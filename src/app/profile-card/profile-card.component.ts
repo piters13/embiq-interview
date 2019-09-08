@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   selector: "app-profile-card",
@@ -9,6 +9,4 @@ export class ProfileCardComponent {
   @Input() firstname: string;
   @Input() lastname: string;
   @Input() position: string;
-
-  constructor() {}
 }

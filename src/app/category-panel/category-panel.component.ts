@@ -1,12 +1,8 @@
 import { BreakpointObserver, BreakpointState } from "@angular/cdk/layout";
 import { Component, Input, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
-import { Profile } from "../app.component";
 import { SelectPersonDialogComponent } from "../select-person-dialog/select-person-dialog.component";
-
-export interface DialogData {
-  profile: Profile;
-}
+import { Person } from "../services/api.service";
 
 @Component({
   selector: "app-category-panel",
@@ -15,8 +11,7 @@ export interface DialogData {
 })
 export class CategoryPanelComponent implements OnInit {
   @Input() categoryName: string;
-  @Input() people: Profile[];
-  profile: Profile;
+  @Input() people: Person[];
   cardsToDisplay: number;
 
   constructor(
@@ -37,9 +32,7 @@ export class CategoryPanelComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(SelectPersonDialogComponent, {
-      data: { profile: this.profile }
-    });
+    const dialogRef = this.dialog.open(SelectPersonDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       result ? this.people.unshift(result) : () => null;
